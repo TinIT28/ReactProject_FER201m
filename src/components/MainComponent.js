@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./MenuComponent";
 import DishDetail from "./DishDetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
 import Contact from "./ContactComponent";
+import About from "./AboutComponent";
 import { DISHES } from "../shared/dishes";
 import { COMMENTS } from "../shared/comments";
 import { PROMOTIONS } from "../shared/promotions";
@@ -55,10 +55,11 @@ class Main extends Component {
               />
             }
           />
+          <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/menu" element={<Menu dishes={this.state.dishes} />} />
           <Route path="/contactus" element={<Contact />} />
-          <Route path="/" element={<Navigate to="/home" />} />
           <Route path='/menu/:dishId' element={DishWithId} />
+          <Route path="/aboutus" element={<About  leaders={this.state.leaders}/>} />
         </Routes>
         <Footer />
       </div>
