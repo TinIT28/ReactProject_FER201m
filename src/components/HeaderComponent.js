@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import {
 	Navbar,
 	NavbarBrand,
-	Jumbotron,
 	Nav,
 	NavbarToggler,
 	Collapse,
