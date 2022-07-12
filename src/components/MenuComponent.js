@@ -42,6 +42,7 @@ import { Link } from 'react-router-dom';
                 <div className="row">
                     {menu}
                 </div>
+                
             </div>
 
         );
