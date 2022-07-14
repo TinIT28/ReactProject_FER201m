@@ -1,22 +1,87 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { baseUrl } from "../data/baseUrl"
 
-import { COMMENTS } from "../shared/comments"
+export const fetchComments = createAsyncThunk(
+	"comments/fetchComments",
+	async () => {
+		const response = await fetch(baseUrl + "comments", {
+			mode: "cors",
+		})
+		if (response.ok) return response.json()
+		else return Promise.reject(`${response.status}: ${response.statusText}`)
+	}
+)
+
+export const postComment = createAsyncThunk(
+	"comments/postComment",
+	async (arg, { getState }) => {
+		const comment = {
+			...arg,
+			id: getState().comments.length,
+			date: new Date().toISOString(),
+		}
+		const response = await fetch(baseUrl + "comments", {
+			method: "POST",
+			body: JSON.stringify(comment),
+			headers: {
+				"Content-Type": "application/json",
+				"Access-Control-Allow-Origin": "*",
+			},
+		})
+		if (response.ok) return response.json()
+		else return Promise.reject(`${response.status}: ${response.statusText}`)
+	}
+)
 
 export const commentsSlice = createSlice({
 	name: "comments",
 	initialState: {
-		comments: COMMENTS,
+		comments: [],
+		errMess: null,
 	},
 	reducers: {
 		addComment: (state, action) => {
 			state.comments.push({
+				...action.payload,
 				id: state.comments.length,
-				dishId: action.payload.dishId,
-				rating: action.payload.rating,
-				comment: action.payload.comment,
-				author: action.payload.author,
 				date: new Date().toISOString(),
 			})
+		},
+	},
+	extraReducers: {
+		[fetchComments.pending]: (state, action) => {
+			console.log("Fetching comments")
+		},
+		[fetchComments.fulfilled]: (state, action) => {
+			console.log("Fetch Successful.")
+			return {
+				...state,
+				comments: action.payload,
+				errMess: null,
+			}
+		},
+		[fetchComments.rejected]: (state, action) => {
+			console.log("Fetch failed.")
+			return {
+				...state,
+				errMess: action.error.message,
+				comments: [],
+			}
+		},
+		[postComment.pending]: (state, action) => {
+			console.log("Posting comment")
+		},
+		[postComment.fulfilled]: (state, action) => {
+			console.log("Post Successful.")
+			state.errMess = null
+			state.comments.push(action.payload)
+		},
+		[postComment.rejected]: (state, action) => {
+			console.log("Post failed.")
+			return {
+				...state,
+				errMess: action.error.message,
+			}
 		},
 	},
 })
