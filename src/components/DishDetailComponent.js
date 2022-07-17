@@ -18,7 +18,7 @@ const minLength = (len) => (val) => val && (val.length >= len);
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
             <Card>
-                <CardImg top src={"/assets" + dish.image} alt={dish.name} />
+                <CardImg top src={"/" + dish.image} alt={dish.name} />
                 <CardBody>
                     <CardTitle>{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>

@@ -8,7 +8,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 0,
       "name": "Uthappizza",
-      "image": "images/pizza.jpg",
+      "image": "/assets/images/pizza.jpg",
       "category": "mains",
       "label": "Hot",
       "price": "4.99",
@@ -18,7 +18,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 1,
       "name": "Zucchipakoda",
-      "image": "images/pakoda.jpg",
+      "image": "/assets/images/pakoda.jpg",
       "category": "appetizer",
       "label": "",
       "price": "1.99",
@@ -28,7 +28,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 2,
       "name": "Vadonut",
-      "image": "images/vada.jpg",
+      "image": "/assets/images/vada.jpg",
       "category": "appetizer",
       "label": "New",
       "price": "1.99",
@@ -38,7 +38,7 @@ app.get('/dishes', (req, res) => {
     {
       "id": 3,
       "name": "ElaiCheese Cake",
-      "image": "images/cheesecake.jpg",
+      "image": "/assets/images/cheesecake.jpg",
       "category": "dessert",
       "label": "",
       "price": "2.99",
@@ -98,7 +98,7 @@ res.send([
     {
         "id": 0,
         "name": "Nikhil karkra",
-        "image": "images/nikhil.jpeg",
+        "image": "assets/images/nikhil.jpeg",
         "designation": "Chief Epicurious Officer",
         "abbr": "CEO",
         "featured": false,
@@ -107,7 +107,7 @@ res.send([
     {
         "id": 1,
         "name": "Nixalar",
-        "image": "images/nikhil1.jpg",
+        "image": "assets/images/nikhil1.jpg",
         "designation": "Chief Food Officer",
         "abbr": "CFO",
         "featured": false,
@@ -116,7 +116,7 @@ res.send([
     {
         "id": 2,
         "name": "Agumbe Tang",
-        "image": "images/alberto.png",
+        "image": "assets/images/alberto.png",
         "designation": "Chief Taste Officer",
         "abbr": "CTO",
         "featured": false,
@@ -125,7 +125,7 @@ res.send([
     {
         "id": 3,
         "name": "Alberto Somayya",
-        "image": "images/chef.jpg",
+        "image": "assets/images/chef.jpg",
         "designation": "Executive Chef",
         "abbr": "EC",
         "featured": true,
@@ -138,7 +138,7 @@ res.send([
     {
         "id": 0,
         "name": "Weekend Grand Buffet",
-        "image": "images/buffetNew.jpg",
+        "image": "assets/images/buffetNew.jpg",
         "label": "New",
         "price": "19.99",
         "featured": true,
