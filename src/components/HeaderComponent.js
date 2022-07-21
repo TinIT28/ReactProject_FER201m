@@ -5,7 +5,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,
 import { NavLink } from 'react-router-dom';
   const bannerImg = {
     backgroundSize: '100%',
-    backgroundImage: 'url(/assets/images/test.png)',
+    backgroundImage: 'url(/assets/images/test.jpg)',
     height: '25rem',
     color: 'azure',
     paddingTop: '1rem'
